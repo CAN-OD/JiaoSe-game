@@ -1,0 +1,43 @@
+/*
+
+夏娜
+
+*/
+
+.JiaoSe_onoe {
+    width: 56px;
+    height: 66px;
+    position: absolute;
+    background:url("../../images/XiaNa/Left/JingTai/JingTai.png") 0 2px no-repeat ;
+    -webkit-animation-iteration-count: infinite; /*动画无限播放*/
+    -webkit-animation-timing-function:step-start;/* 马上跳到动画每一结束桢的状态 */
+    -webkit-animation-name: JingTai;
+    -webkit-animation-duration: 800ms;
+}
+
+@-webkit-keyframes JingTai{/* 夏娜 静止状态图  */
+    0% { background-position: 0 2px;}
+    25% {background-position: -55px 2px;}
+    50% {background-position: -111px 2px;}
+    75% {background-position: -166px 2px;}
+    100% {background-position: 2px 2px;}
+}
+
+@-webkit-keyframes LieYanFengBao{ /* 技能 夏娜烈焰风暴 按钮 J */
+    0% {background-position: 0 0;width: 65px;height: 88px;}
+    10% {background-position: -117px 0;width: 65px;height: 88px;}
+    20% {background-position: -236px 0;width: 65px;height: 88px;}
+    30% {background-position: -341px 0;width: 76px;height: 88px;}
+    40% {background-position: -451px 0;width: 120px;height: 88px;}
+    50% {background-position: -573px 0;width: 107px;height: 88px;}
+    60% {background-position: -687px 0;width: 112px;height: 88px;}
+    70% {background-position: -810px 0;width: 94px;height: 88px;}
+    80% {background-position: -923px 0;width: 64px;height: 88px;}
+    90% {background-position: -1044px 0;width: 68px;height: 88px;}
+    100% {background-position: -1157px 0;width: 63px;height: 88px;}
+}
+
+@-webkit-keyframes FangShou{ /* 技能 防守 按钮 I */
+    0% {background-position: 0 0;width: 50px;height: 57px;}
+    100% {background-position: -99px 0;width: 50px;height: 57px;}
+}

@@ -1,0 +1,7 @@
+body {position: relative;}
+.cont {
+    position: relative;
+    width: 800px;
+    height: 250px;
+    background-color: #fff;
+}

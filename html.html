@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/rest.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div class="cont"></div>
+<script src="js/jquery/jquery-1.7.1.js"></script>
+<script src="js/publicMethod.js"></script>
+<script src="js/JiaoSeClass.js"></script>
+<script>
+    $(function(){
+
+        // 技能统一 执行方法
+        function SkillDown(dom,name,img,time,tR){
+            // 执行动画前先清除之前动画
+            if(tR) {
+                dom.css({
+                    "background": "",
+                    "-webkit-animation-name": "",
+                    "-webkit-animation-iteration-count": ""
+                });
+            }
+            // 调用相应动画效果
+            setTimeout(function(){
+                dom.css({
+                    "background":"url("+img+")",
+                    "-webkit-animation-name": name,
+                    "-webkit-animation-duration":time+"ms"
+                });
+            },10);
+        }
+
+        // 技能统一 取消方法
+        function SkillUp(dom,name,img,time){
+            dom.css({
+                "background":"url("+img+") 0 2px no-repeat",
+                "-webkit-animation-name": name,
+                "-webkit-animation-duration":time+"ms"
+            });
+        }
+
+        // 键盘件事
+        var iT = true; // 记录值 松开后进行刷新
+        $(document).off().keydown(function(event){
+//            alert(event.keyCode);
+            /* 1P 角色 操作
+               // 移动
+               87‘W’上,68‘D’右, 65 'A' 左,83 'S' 下
+               // 技能
+               74‘J’
+               75‘K’
+               76‘L’
+               85‘U’
+               73‘I’
+               79‘O’
+               80‘p’
+             */
+            if(event.keyCode=='74'){ // J 夏娜 夏娜烈焰风暴
+                SkillDown($(".JiaoSe_onoe"),"LieYanFengBao","images/XiaNa/Left/skill/LieYanFengBao/LieYanFengBao.png","800",iT);
+                return iT = false;
+            }
+
+            if(event.keyCode=='73'){ // I 夏娜 防守
+                SkillDown($(".JiaoSe_onoe"),"FangShou","images/XiaNa/Left/skill/FangShou/FangShou.png","800",iT);
+                return iT = false;
+            }
+
+         /* 2P 角色 操作
+              //移动
+               38 '上',39 '右', 37 '左',40 '下'
+              // 技能
+              48 ‘0’
+              49  '1'
+              50  '2'
+              51  '3'
+              52  '4'
+              53  '5'
+              54  '6'
+
+            */
+
+        }).keyup(function(event){
+            iT = true;
+            // 松开键盘 动画执行完回到默认动画效果
+            setTimeout(function(){
+                SkillUp($(".JiaoSe_onoe"),"JingTai","images/XiaNa/Left/JingTai/JingTai.png","800");
+            },800)
+        });
+
+        var menu = function(){
+            this.OneP = new OneP();
+            this.TwoP = new TwoP();
+            $.include([this.OneP.cssFile,this.TwoP.cssFile]);
+            var Onoe1 = '<div class="JiaoSe_onoe"></div>';
+            var Two2 = '<div class="JiaoSe_two"></div>';
+            $(".cont").append(Onoe1);
+            $(".cont").append(Two2);
+
+            $(".JiaoSe_onoe").css({
+                "left":this.OneP.x+"px",
+                "top":this.OneP.y+"px"});
+            $(".JiaoSe_two").css({
+                "left":this.TwoP.x+"px",
+                "top":this.TwoP.y+"px"
+            });
+
+        };
+        menu();
+
+    });
+</script>
+</body>
+</html>
