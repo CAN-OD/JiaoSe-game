@@ -21,3 +21,16 @@
     75% {background-position: -155px 2px;}
     100% {background-position: 2px 2px;}
 }
+
+@-webkit-keyframes SanHunTieZhua{ /* 技能 散魂铁爪 按钮 1 */
+    0% {background-position: -12px 1px;width: 43px;height: 59px;}
+    20% {background-position: -58px 1px;width: 45px;height: 59px;}
+    40% {background-position: -112px 1px;width: 45px;height: 59px;}
+    60% {background-position: -165px 1px;width: 45px;height: 59px;}
+    80% {background-position: -232px 1px;width: 45px;height: 59px;}
+    100% {background-position: -12px 1px;width: 43px;height: 59px;}
+}
+@-webkit-keyframes FangShou{ /* 技能 防守 按钮 0 */
+    0% {background-position: 0 0;width: 41px;height: 47px;}
+    100% {background-position: -82px 0;width: 41px;height: 47px;}
+}

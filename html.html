@@ -16,6 +16,8 @@
 
         // 技能统一 执行方法
         function SkillDown(dom,name,img,time,tR){
+            // 按住按钮不松开一直执行，不重复改变动作图片
+            if(dom.css("-webkit-animation-name")==name){return;}
             // 执行动画前先清除之前动画
             if(tR) {
                 dom.css({
@@ -82,13 +84,26 @@
               54  '6'
 
             */
+            if(event.keyCode=='96'){ // 0 犬夜叉 防御
+                SkillDown($(".JiaoSe_two"),"FangShou","images/QuanYeCha/Right/skill/FangShou/FangShou.png","800",iT);
+                return iT = false;
+            }
+            if(event.keyCode=='97'){ // 1 犬夜叉 散魂铁爪
+                SkillDown($(".JiaoSe_two"),"SanHunTieZhua","images/QuanYeCha/Right/skill/SanHunTieZhua/SanHunTieZhua.png","800",iT);
+                return iT = false;
+            }
+
+
 
         }).keyup(function(event){
             iT = true;
             // 松开键盘 动画执行完回到默认动画效果
             setTimeout(function(){
                 SkillUp($(".JiaoSe_onoe"),"JingTai","images/XiaNa/Left/JingTai/JingTai.png","800");
-            },800)
+            },800);
+            setTimeout(function(){
+                SkillUp($(".JiaoSe_two"),"JingTai","images/QuanYeCha/Right/JingTai/JingTai.png","800");
+            },800);
         });
 
         var menu = function(){
@@ -110,7 +125,6 @@
 
         };
         menu();
-
     });
 </script>
 </body>
